@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { FaFileDownload } from 'react-icons/fa';
+import { getAssetPath } from '../config';
 
 const Resume = () => {
   return (
@@ -21,7 +22,7 @@ const Resume = () => {
             </div>
             <div className="col-md-4 d-flex justify-content-md-end mt-3 mt-md-0">
               <a 
-                href={`${import.meta.env.BASE_URL}cv.pdf`}
+                href={getAssetPath("cv.pdf")} 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="btn btn-light d-flex align-items-center gap-2 px-4 py-2"
@@ -41,7 +42,7 @@ const Resume = () => {
           style={{ height: "700px", maxWidth: "100%" }}
         >
           <iframe
-            src={`${import.meta.env.BASE_URL}cv.pdf`}
+            src={getAssetPath("cv.pdf")}
             title="Resume"
             className="w-100 h-100 border-0"
           />

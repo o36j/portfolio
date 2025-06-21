@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { getAssetPath } from '../config';
 
 const Home = () => {
   return (
@@ -64,7 +65,7 @@ const Home = () => {
               className="position-relative"
             >
               <img 
-                src={`${import.meta.env.BASE_URL}borderless me.png`} 
+                src={getAssetPath("borderless me.png")} 
                 alt="Osama Saud" 
                 className="img-fluid"
                 style={{ 

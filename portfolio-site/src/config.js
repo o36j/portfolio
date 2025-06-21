@@ -28,7 +28,7 @@ const siteConfig = {
       "portfolio",
       "John Doe",
     ],
-    metaImage: `${import.meta.env.BASE_URL}me.png`,
+    metaImage: "/me.png",
     locale: "en_US",
   },
   
@@ -55,6 +55,18 @@ const siteConfig = {
       path: "/contact",
     },
   ],
+};
+
+// Helper function to handle asset paths for GitHub Pages deployment
+export const getAssetPath = (path) => {
+  // Remove leading slash if present
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  // For development, use the path as is
+  if (import.meta.env.DEV) {
+    return `/${cleanPath}`;
+  }
+  // For production, prefix with the base path
+  return `${import.meta.env.BASE_URL}${cleanPath}`;
 };
 
 export default siteConfig; 
