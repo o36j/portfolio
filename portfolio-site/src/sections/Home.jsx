@@ -64,7 +64,7 @@ const Home = () => {
               className="position-relative"
             >
               <img 
-                src="/borderless me.png" 
+                src={`${import.meta.env.BASE_URL}borderless me.png`} 
                 alt="Osama Saud" 
                 className="img-fluid"
                 style={{ 

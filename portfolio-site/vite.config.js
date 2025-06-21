@@ -9,8 +9,8 @@ export default defineConfig({
     emptyOutDir: true,
     sourcemap: false,
   },
-  // For GitHub Pages deployment
-  base: '/',
+  // For GitHub Pages deployment - match the repository name in package.json homepage
+  base: '/portfolio',
   // For handling client-side routing with React Router
   server: {
     historyApiFallback: true,

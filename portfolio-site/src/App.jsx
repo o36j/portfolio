@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
@@ -14,6 +14,14 @@ function App() {
   const projectsRef = useRef(null);
   const resumeRef = useRef(null);
   const contactRef = useRef(null);
+
+  useEffect(() => {
+    // Fix meta tag for Twitter image
+    const twitterImageMeta = document.querySelector('meta[property="twitter:image"]');
+    if (twitterImageMeta) {
+      twitterImageMeta.setAttribute('content', `${import.meta.env.BASE_URL}me.png`);
+    }
+  }, []);
 
   const scrollToSection = (ref) => {
     if (ref && ref.current) {

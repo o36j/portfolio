@@ -21,7 +21,7 @@ const Resume = () => {
             </div>
             <div className="col-md-4 d-flex justify-content-md-end mt-3 mt-md-0">
               <a 
-                href="/cv.pdf" 
+                href={`${import.meta.env.BASE_URL}cv.pdf`}
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="btn btn-light d-flex align-items-center gap-2 px-4 py-2"
@@ -41,7 +41,7 @@ const Resume = () => {
           style={{ height: "700px", maxWidth: "100%" }}
         >
           <iframe
-            src="/cv.pdf"
+            src={`${import.meta.env.BASE_URL}cv.pdf`}
             title="Resume"
             className="w-100 h-100 border-0"
           />
