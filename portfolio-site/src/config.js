@@ -28,7 +28,7 @@ const siteConfig = {
       "portfolio",
       "John Doe",
     ],
-    metaImage: `${import.meta.env.BASE_URL}me.png`,
+    metaImage: "/me.png",
     locale: "en_US",
   },
   
