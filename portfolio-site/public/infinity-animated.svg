@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 60" width="100" height="60">
+  <style>
+    @keyframes flow {
+      0% {
+        stroke-dashoffset: 300;
+      }
+      100% {
+        stroke-dashoffset: 0;
+      }
+    }
+    .infinity-path {
+      stroke-dasharray: 300;
+      stroke-dashoffset: 300;
+      animation: flow 3s linear infinite;
+    }
+  </style>
+  <path class="infinity-path" d="M30,30 C20,15 0,15 0,30 C0,45 20,45 30,30 C40,15 60,15 70,30 C80,45 100,45 100,30 C100,15 80,15 70,30 C60,45 40,45 30,30 Z" fill="none" stroke="#ffffff" stroke-width="3" />
+</svg> 
