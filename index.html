@@ -13,23 +13,37 @@
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://osama.portfolio.com/">
+    <meta property="og:url" content="https://o36j.github.io/portfolio/">
     <meta property="og:title" content="Osama Saud | Portfolio">
     <meta property="og:description" content="Professional portfolio of Osama Saud, a full-stack web developer and data analyst with expertise in MERN stack, Python, and machine learning.">
-    <meta property="og:image" content="/portfolio/me.png">
+    <meta property="og:image" content="./me.png">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://osama.portfolio.com/">
+    <meta property="twitter:url" content="https://o36j.github.io/portfolio/">
     <meta property="twitter:title" content="Osama Saud | Portfolio">
     <meta property="twitter:description" content="Professional portfolio of Osama Saud, a full-stack web developer and data analyst with expertise in MERN stack, Python, and machine learning.">
-    <meta property="twitter:image" content="/me.png">
+    <meta property="twitter:image" content="./me.png">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="/portfolio/assets/index-BRNrg2fT.js"></script>
+    
+    <!-- GitHub Pages SPA Router Script -->
+    <script type="text/javascript">
+      // Handle GitHub Pages SPA routing
+      (function() {
+        const redirectPath = localStorage.getItem('spa-redirect');
+        if (redirectPath) {
+          localStorage.removeItem('spa-redirect');
+          if (redirectPath !== window.location.pathname.substring(1)) {
+            window.history.replaceState(null, null, redirectPath);
+          }
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/portfolio/assets/index-BsiJSuq6.js"></script>
     <link rel="stylesheet" crossorigin href="/portfolio/assets/index-hVP1W-AP.css">
   </head>
   <body>
