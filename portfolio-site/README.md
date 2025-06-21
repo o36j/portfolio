@@ -89,3 +89,51 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - [React Router](https://reactrouter.com/)
 - [React PDF](https://react-pdf.org/)
 - [React Icons](https://react-icons.github.io/react-icons/)
+
+## Contact Form Setup with EmailJS
+
+This portfolio uses [EmailJS](https://www.emailjs.com/) to send emails directly from the contact form without requiring a server.
+
+### Steps to Set Up EmailJS:
+
+1. **Create an EmailJS Account**:
+   - Sign up for a free account at [EmailJS](https://www.emailjs.com/)
+   - Verify your account through the email they send
+
+2. **Connect Your Email Service**:
+   - In the EmailJS dashboard, go to "Email Services"
+   - Click "Add New Service" and choose your email provider (Gmail, Outlook, etc.)
+   - Follow the authentication steps to connect your email account
+
+3. **Create an Email Template**:
+   - Go to "Email Templates" and create a new template
+   - Design your email template using these variables:
+     - `{{from_name}}` - The sender's name
+     - `{{reply_to}}` - The sender's email address
+     - `{{subject}}` - The email subject
+     - `{{message}}` - The message content
+
+4. **Configure Environment Variables**:
+   - Create a `.env` file in the root directory with the following variables:
+     ```
+     VITE_EMAILJS_SERVICE_ID=your_service_id
+     VITE_EMAILJS_TEMPLATE_ID=your_template_id
+     VITE_EMAILJS_PUBLIC_KEY=your_public_key
+     ```
+   - Replace the values with your actual EmailJS credentials:
+     - `your_service_id` - From the Email Services tab
+     - `your_template_id` - From the Email Templates tab
+     - `your_public_key` - From Account > API Keys
+
+   - Alternatively, you can directly replace the placeholder values in `src/services/emailService.js`:
+     ```javascript
+     const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'YOUR_ACTUAL_SERVICE_ID';
+     const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'YOUR_ACTUAL_TEMPLATE_ID';
+     const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_ACTUAL_PUBLIC_KEY';
+     ```
+
+5. **Test the Form**:
+   - After deployment, test the form to ensure emails are being sent correctly
+   - Check your inbox to confirm you're receiving submissions
+
+Note: The free plan includes 200 emails per month, which is sufficient for most portfolio sites.

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaEnvelope, FaPhone, FaLinkedin, FaMapMarkerAlt } from 'react-icons/fa';
+import { sendContactEmail } from '../services/emailService';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +14,7 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitError, setSubmitError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,26 +24,39 @@ const Contact = () => {
     });
   };
   
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitError(false);
+    setSubmitSuccess(false);
     
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitSuccess(true);
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: '',
-      });
+    try {
+      const result = await sendContactEmail(formData);
       
-      // Reset success message after 5 seconds
-      setTimeout(() => {
-        setSubmitSuccess(false);
-      }, 1000);
-    }, 1500);
+      if (result.success) {
+        setSubmitSuccess(true);
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: '',
+        });
+        
+        // Reset success message after 5 seconds
+        setTimeout(() => {
+          setSubmitSuccess(false);
+        }, 5000);
+      } else {
+        setSubmitError(true);
+        setErrorMessage('Failed to send message. Please try again later.');
+      }
+    } catch (error) {
+      setSubmitError(true);
+      setErrorMessage('An unexpected error occurred. Please try again later.');
+      console.error('Contact form error:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
   
   return (
@@ -72,13 +87,15 @@ const Contact = () => {
               <form onSubmit={handleSubmit} className="needs-validation">
                 {submitSuccess && (
                   <div className="alert alert-success">
-                    Thanks for reaching out! I'll get back to you soon.
+                    <i className="bi bi-check-circle-fill me-2"></i>
+                    Thank you! Your message has been sent successfully. I'll get back to you soon.
                   </div>
                 )}
                 
                 {submitError && (
                   <div className="alert alert-danger">
-                    Something went wrong. Please try again later.
+                    <i className="bi bi-exclamation-triangle-fill me-2"></i>
+                    {errorMessage || 'Something went wrong. Please try again later.'}
                   </div>
                 )}
                 
