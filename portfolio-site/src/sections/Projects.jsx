@@ -33,7 +33,7 @@ const Projects = () => {
       image: 'https://placehold.co/600x400/111/FFF?text=ML+Models',
       technologies: ['Python', 'scikit-learn', 'XGBoost', 'TensorFlow', 'Pandas'],
       category: 'machine-learning',
-      github: 'https://github.com/o36j',
+      github: null,
       demo: null,
     },
     {
@@ -43,17 +43,7 @@ const Projects = () => {
       image: 'https://placehold.co/600x400/111/FFF?text=Sales+Dashboard',
       technologies: ['Python', 'Pandas', 'NumPy', 'Tableau', 'SQL', 'ETL'],
       category: 'data-analysis',
-      github: 'https://github.com/o36j',
-      demo: null,
-    },
-    {
-      id: 5,
-      title: 'Customer Segmentation Analysis',
-      description: 'Data analysis project that segments customers based on purchasing behavior using clustering algorithms and provides actionable marketing insights.',
-      image: 'https://placehold.co/600x400/111/FFF?text=Customer+Segmentation',
-      technologies: ['Python', 'Pandas', 'scikit-learn', 'Matplotlib', 'Seaborn', 'Power BI'],
-      category: 'data-analysis',
-      github: 'https://github.com/o36j',
+      github: null,
       demo: null,
     },
     {
@@ -73,7 +63,17 @@ const Projects = () => {
       image: 'https://placehold.co/600x400/111/FFF?text=Security+Tools',
       technologies: ['Python', 'Nmap', 'Metasploit', 'Shell Scripting'],
       category: 'security',
-      github: 'https://github.com/o36j',
+      github: null,
+      demo: null,
+    },
+    {
+      id: 8,
+      title: 'Smart Beauty App',
+      description: 'Android application developed at BlueSense. A smart beauty app featuring advanced UI/UX design, real-time beauty analysis, and personalized recommendations. Built with Kotlin and Java, focusing on performance optimization and responsive design.',
+      image: 'https://placehold.co/600x400/111/FFF?text=Smart+Beauty+App',
+      technologies: ['Kotlin', 'Java', 'Android SDK', 'React', 'JavaScript'],
+      category: 'mobile',
+      github: null,
       demo: null,
     },
   ];
@@ -207,14 +207,16 @@ const ProjectCard = ({ project, index }) => {
           </div>
           
           <div className="d-flex gap-3 mt-auto">
-            <a 
-              href={project.github} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-decoration-none d-flex align-items-center text-white-50"
-            >
-              <FaGithub className="me-1" /> View Code
-            </a>
+            {project.github && (
+              <a 
+                href={project.github} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-decoration-none d-flex align-items-center text-white-50"
+              >
+                <FaGithub className="me-1" /> View Code
+              </a>
+            )}
             {project.demo && (
               <a 
                 href={project.demo} 

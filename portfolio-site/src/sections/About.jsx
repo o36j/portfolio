@@ -66,6 +66,12 @@ const About = () => {
   
   const experience = [
     {
+      role: 'Software Developer Intern',
+      company: 'BLUESENSE',
+      period: 'September 2025 - Present',
+      description: 'Developed Android applications using Kotlin and Java, improving UI responsiveness and app performance. Contributed to front-end development of the company website using React and JavaScript. Collaborated with engineers to debug, test, and optimize mobile app features.',
+    },
+    {
       role: 'Machine Learning Scientist Intern',
       company: 'DataCamp',
       period: 'March 2025 - June 2025',
